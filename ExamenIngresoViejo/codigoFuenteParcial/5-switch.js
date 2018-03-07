@@ -1,12 +1,18 @@
 //Debemos lograr mostrar un mensaje al presionar el botón  'MOSTRAR'.
+/*Enunciado:
+
+5-Realizar el algoritmo que al presionar el botón "Mostrar" pida un mes del año por prompt, si es un "enero" o "febrero" 
+informar por alert “Veranito!!!!” de lo contrario informar por alert “extraño enero y febrero!!!” .*/
+
 function Mostrar()
 {
-    var veranitomuchachitosummer = prompt("Ingrese mes del año a continuacion: ");
-    switch(veranitomuchachitosummer)
+    var mes;
+    mes = prompt("Ingrese mes del año");
+  switch (mes)
     {
-        case "Enero":
-        case "Febrero":
-        alert("Verano PIBITO!");
+        case "enero":
+        case "febrero":
+        alert("Veranitooo!");
         break;
         default:
         alert("extraño enero y febrero!!!");

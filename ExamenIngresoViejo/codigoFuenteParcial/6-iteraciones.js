@@ -4,31 +4,30 @@
    e informar cual fue el mayor importe y cuál fue el menor importe de venta*/
 function Mostrar()
 {
-    var semana=0; 
-    var ventas;
-    var ventaminima;
-    var ventamaxima;
-    var flag = true;
-    while (semana < 7)
     {
+        var importe;
+        var maximo;
+        var minimo;
+        var flag = true;
         
-        ventas = parseInt(prompt("Ingrese ventas del dia: "));
-    if (ventas > 0)
-       {
-        semana = semana+1;
-            if (ventaminima > ventas || flag )
+        for (var i=0; i <7; i++)
+        {
+            importe = parseInt(prompt("Ingrese el numero de ventas"));
+            while (importe < 0)
             {
-                ventaminima = ventas;
+                importe = parseInt(prompt("Ingrese nuevamente de ventas"));
             }
-            if (ventamaxima < ventas || flag )
+        
+            if (minimo > importe || flag)
             {
-                ventamaxima = ventas;
+                minimo = importe;
+            }
+            if (maximo < importe || flag)
+            {
+                maximo = importe;
                 flag = false;
-            }    
+            }
         }
-        
-        
-    }
-    alert("La venta minima de la semana es: "+ventaminima+ " y la venta maxima es "+ventamaxima);
+        alert ("El numero menor de ventas de la semana es "+minimo+ " y el maximo es "+maximo);
 }
-
+}

@@ -1,38 +1,54 @@
 //Debemos lograr mostrar un mensaje al presionar el botón  'MOSTRAR'.
+
+/*7-Realizar el algoritmo que al presionar el botón "Mostrar" pida por prompt las notas (validar entre 0 y 10) 
+y el sexo(validar el sexo “f” o “m”) de 6 alumnos, informar por alert: 
+a) el promedio de las notas totales. 
+b) la nota más baja. 
+c) la cantidad de varones que su nota haya sido mayor o igual a 6.*/
+
 function Mostrar()
 {
-    var alumnototal = 0;
+    var acumulador = 0;
     var nota;
-    var varones;
     var sexo;
-    var numero;
-    var acumulador=0;
+    var notabaja;
+    var promedio;
+    var contador=0;
+    var flag = true;
 
-    while (alumnototal < 6)
+    for (var i=0; i < 3; i++)
     {
+        nota = parseInt(prompt("Ingrese notas"));
         
-        numero = parseInt(prompt("Ingrese la nota a continuacion: "));
+        while(nota <=0  && nota >=10)
         
-
-    if (numero < 10 && numero > 0)
-    {
-        alumnototal++;
+        { 
+            nota = parseInt(prompt("Ingrese notas nuevamente del 0 al 10"));
+        }
         sexo = prompt("Ingrese su sexo: ");
-        if(sexo == "m")
+        while (!(sexo =="f" || sexo =="m"))
         {
-            nota = numero;
-            if (numero >= 6)
-            {
-            varones++;
-            }
+            sexo = prompt("Ingrese su sexo nuevamente: f o m");
         }
-        else if (sexo == "f")
+        if (sexo == "m" && nota >= 6)
         {
-            nota = numero;
+            acumulador = acumulador + nota;
+            contador++;
         }
-    acumulador = acumulador + nota;   
+        else if (notabaja > nota || flag)
+        {
+        notabaja = nota;
+        acumulador = acumulador + nota;
+        flag = false;
+        }
+        else
+        {
+        acumulador = acumulador + nota;    
+        }
+
     }
-}
-    alert("Promedio de notas totales: " +acumulador/6+" , el numero de varones con notas mayores o iguales a seis es "+varones+" y la menor nota "+notabaja)
+    
+    promedio = acumulador / 6;
+    alert(" El promedio del total de las notas es :"+promedio.toFixed(2)+ " la nota mas baja "+notabaja+ " los varones con notas >= 6: "+contador);
 }
 
